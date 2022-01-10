@@ -2,6 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { EnterRoom } from './components/EnterRoom'
 import ThemeColors from './themeColors'
 import AnimatedHomeSvg from './components/AnimatedHomeSvg'
+import GithubIcon from './assets/github.svg'
 
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -140,6 +141,42 @@ export function App() {
 				<EnterRoom />
 			</Container>
 			<Footer />
+			<GithubBadge>
+				<a href='https://github.com/LucasGabrielBecker?tab=repositories&q=plan-poker'>
+					<img src={GithubIcon} alt='github Icon' />
+					Projeto em construção
+				</a>
+			</GithubBadge>
 		</>
 	)
 }
+
+const GithubBadge = styled.div`
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	transform: rotate(10deg, 10deg, 10deg);
+
+	color: var(--primary-900);
+	z-index: 889999;
+	cursor: pointer;
+	a,
+	a:visited {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	a {
+		display: grid;
+		place-items: center;
+	}
+
+	img {
+		height: 30px;
+	}
+
+	&:hover img {
+		transform: translateY(-10px);
+		transition: transform 600ms;
+	}
+`
